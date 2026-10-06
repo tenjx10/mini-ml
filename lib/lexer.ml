@@ -1,5 +1,4 @@
-(* Hand-written lexer: turns source text into an array of tokens, each
-   tagged with the line and column where it starts. *)
+(* lexer.ml *)
 
 type token =
   (* literals and names *)
@@ -34,7 +33,7 @@ let keywords =
   ; "list", KW_LIST; "option", KW_OPTION
   ]
 
-(* Longest symbols first, so that e.g. "->" wins over "-". *)
+(* longest symbols first, so that e.g. "->" wins over "-". *)
 let symbols =
   [ "->", ARROW; "::", CONS; "<=", LESS_EQ; ">=", GREATER_EQ; "<>", NOT_EQUAL
   ; "&&", AND_AND; "||", OR_OR; "**", STAR_STAR

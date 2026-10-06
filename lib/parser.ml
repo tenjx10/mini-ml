@@ -1,4 +1,6 @@
-(* Hand-written recursive-descent parser. Binary operators are handled by
+(* parser.ml 
+
+   Binary operators are handled by
    precedence climbing; everything else is one function per grammar rule.
 
    Operator precedence, loosest to tightest:

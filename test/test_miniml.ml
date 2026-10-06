@@ -2,8 +2,6 @@ open OUnit2
 open Miniml
 open Utils
 
-(* ---------- helpers ---------- *)
-
 let parses_to src expected _ =
   assert_equal ~printer:(fun _ -> "<ast>") (Some expected) (Interp.parse src)
 
@@ -28,7 +26,6 @@ let num n = Int n
 let ( +: ) a b = Bop (Add, a, b)
 let ( *: ) a b = Bop (Mul, a, b)
 
-(* ---------- parser ---------- *)
 
 let parser_tests =
   "parser" >::: [
@@ -66,7 +63,6 @@ let parser_tests =
     "unknown constructor" >:: parse_fails "let x = Foo";
   ]
 
-(* ---------- type checking ---------- *)
 
 let typing_tests =
   "typing" >::: [
@@ -85,7 +81,6 @@ let typing_tests =
             let _ = assert (len [true; false] = 2)";
   ]
 
-(* ---------- evaluation ---------- *)
 
 let eval_tests =
   "eval" >::: [
@@ -101,7 +96,7 @@ let eval_tests =
       raises Interp.CompareFunVals "let f x = x let _ = f = f";
   ]
 
-(* Every program in examples/ must run without errors. *)
+(* every program in examples/ must run without errors. *)
 let example_tests =
   let dir = "../examples" in
   "examples" >:::
